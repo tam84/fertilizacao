@@ -1,65 +1,91 @@
-
-<button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-<%= link_to ">>> Ver em formato de tabela", products_path(table_format: true,category_id: params[:category_id]), style: "color: #fff; font-weight: bold"%>
-</button>
-</br></br>
-
-
-<% if params and params[:category_id] == "1" || params["/products"] %>
-<div class="card ">
-  <div class="card-body ">
-
-    <h5>Está achando as taxas padrões muito baixas? </h5>
-    <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="">
-      <%= link_to "Cote em várias mesas", new_quotation_path(category_id: cdb_category), class:"nav-link", style: "color: #fff; font-weight: bold" %>
-    </button>
-  </div>
-</div>
-<% end %>
-
-<% if params and params[:category_id] == "1" || params["/products"] %>
-<div class="card ">
-  <div class="card-body ">
-    <h5>Filtre sua busca de CDBs.</h5>
-    <div class="card-header card-header-rose card-header-icon">
-      <%= form_for products_path, method: :get  do |f| %>
-      <div class="bootstrap-tagsinput info-badge">
-        <%= f.select(:destribuitor, Product.pluck(:destribuitor).uniq, {:prompt => 'Emissor +'}, {class: "btn btn-sm", style: "background-color: gray"}) %>
-        <%= f.select :category_name, ["CDB", "debentures"], {:prompt => 'Tipo de Remuneração +'}, {class: "btn btn-sm", style: "background-color: gray"} %>
-        <%= f.select :to_investment_period, [360, 720, 1080, 1440], {:prompt => 'Vencimento +'}, {class: "btn btn-sm", style: "background-color: gray"} %>        
-        <%= f.text_field :target_return_benchmark_to, placeholder: "Acima de - Digite apenas números", style: "border: solid 0.1em; width: 185px; font-size: 12px"  %>  
-        <%= f.hidden_field :category_id, value: params[:category_id]  %><br />
-      </div>
-      <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% end %>
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: -50px"></br>
+  <div class="row">
 
 
 
-<div class="row">
-  <% if @products != nil %>
-  <% @products.each do |product| %>
-  <div class="col-md-4">
-    <div class="card card-profile">
-      <div class="card-avatar" data-header-animation="false">
+
+    <div class="col-md-8">
+      <div class="card ">
+        <div class="card-header card-header-rose card-header-icon">
+        <% if params[:category_id] %>    
+          <div class="card-icon">
+            <i class="material-icons" style="color: #ffbc02">info</i>
+          </div>
+          <h4 class="card-title"><%= category_name params[:category_id]%></h4></br></br>
+          <% end %>
+        </div>
+   
+
+
+
+<div class="col-md-12">
+  <div class="container">
+    <div class="row " style="margin-top: 0px;">
+      <div class="col-md-8" ></br>
         <a href="#pablo">
-          <% if product.firm.firm_photos.present? %>
-          <%= image_tag(product.firm.firm_photos.first.variant(resize: "300x300!")) %>
+          <% if @product and @product.images.first.present? %>
+          <%= image_tag(@product.images.first.variant(resize: "400x400"),height: '300', width:'100%') %>
           <% else %>
-          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
-          <% end %>            
-          </a>
+          <img style="width: 100%; height: 300px" src="/assets/rinoplastia/valor-rinoplastia">
+          <% end %>
+
+        </a>  
+      </div>
+
+
+      <div class="col-md-4" ></br>
+        <% @product_articles.last(5).each do |article| %>    
+        <h4 style="border-bottom:1px solid #ccc;margin-top:7px; padding-bottom: 15px; line-height: 1.0">
+        <%= link_to (raw article.title.truncate(56)), product_article_path(id: article.id), style: "font-size: 14px;font-family: HelveticaNeue-Light;color: #2c2c2c; font-weight:bold;" %>
+        </h4>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>      
+
+
+
+
+        
+
+
+<div class="section section-nucleo-icons">
+        <div class="container">
+          <div class="row">
+
+
+
+
+<div class="row" style="margin-top: 0px;">
+  <div class="col-md-4">
+    <div >
+      <div class="card-header card-header-image" data-header-animation="false">
       </div>
       <div class="card-body">
-        <div class="text-center" >
-          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0a2644;'} %>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)), {style:'color:#0a2644;'} %>
-              </button>
-            <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#0a2644;'} %>
+        <div class="text-left">
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" >                    
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          </div>
+      </div>
+
+
+
+  <div class="col-md-4">
+    <div >
+      <div class="card-header card-header-image" data-header-animation="false">
+      </div>
+      <div class="card-body">
+        <div class="text-left">
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -67,24 +93,242 @@
                 </div>
               </div>
             </div>
-            <h4 class="card-title" style="height: 20px">
-              <%= h truncate(product.name, :length => 32) %>              
-            </h4>
-            <div class="card-description" style='color:#000;height: 150px'>
-              <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
             </div>
-            </div>
-            <div class="card-footer">
-              <div class="price">
-                <h4><%= product.key_information%></h4>
+
+
+
+
+        </div>
+      </div>
+
+  <div class="col-md-4">
+    <div class="">
+      <div class="card-header card-header-image" data-header-animation="false">
+      </div>
+      <div class="card-body">
+        <div class="text-left">
+          
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">                    
+                </div>
+                </div>
               </div>
-            <div class="stats">
-              <p class="card-category"style='color:#000'><%= product.category.name%></p>
             </div>
+            </div>
+
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+           
           </div>
         </div>
       </div>
-      <% end %>
-      <% end %>
+
+ 
+</br>
+
+
+
+
+
+
+
+<div class="container" style="margin-top: -100px">
+  <h1 style="font-size: 22px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;margin-top: 50px "><%= @product.category_name(@product).upcase%> - GUIAS E INFORMAÇÕES COMPLETAS</h1>
+</div></br>
+
+
+<div class="container">
+
+<% @product_articles.last(15).each do |article| %>    
+
+<div class="row " style="margin-top: 0px; text-align: left;border-bottom: 1px solid #ccc; padding-bottom: 15px;" >
+  
+
+
+  <div class="col-md-4"></br>
+    <h2 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h2>
+  </div>
+
+  <div class="col-md-4" ></br>
+    <p style="margin-top: 2px; line-height: 1.2; font-size: 14px;"> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>
+
+    </p>
+  </div>
+
+
+  <div class="col-md-4" style="margin-top: 30px"></br>
+      <div class="card-header card-header-image" data-header-animation="false" >
+        <a href="#pablo" >
+          <% if article.images.present? %>
+          <%= image_tag(article.images.first.variant(resize: "400x400"),height: '120', alt:article.title, title: article.title) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
+          </a>
+      </div>    
+  </div>
+
+</div>
+
+<% end %>
+
+
+
+</div>  
+
+
+
+
+
+
+
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+  </div>   
+
+
+</div>
+
+
+
+
+
+ </div>
+     <div class="col-md-4">
+      <div class="card "></br>
+
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 18px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff"> GALERIA DE FOTOS </br><%= @product.category_name(@product).upcase %> </h4>
+</div>
+
+
+  <% if params[:product_id] and @product.name == "Colocar peito silicone - Preço R$ - Antes e Depois - Tamanho Tipo Prótese"  %>
+
+   <%= render "/landing/antes_depois_silicone" %>
+
+  <%end%>
+
+
+
+  <% if params[:product_id] and  @product.name == "Cirurgia plástica orelha de abano -preço R$, antes e depois, recuperação\r\n"     %>
+
+   <%= render "/landing/antes_depois_otoplastia" %>
+
+  <%end%>
+
+
+  <% if params[:product_id] and  @product.name == "Mamoplastia Redutora - Preço - Informações - Cirurgião Plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_mamoplastia_redutora" %>
+
+  <%end%>
+
+
+  <% if params[:product_id] and  @product.name == "Mastopexia com Prótese Preço - antes e depois e +info\r\n"    %>
+
+   <%= render "/landing/antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if params[:product_id] and  @product.name == "Mastopexia sem Prótese - Valor - informações - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if params[:product_id] and  @product.name == "Lipoaspiração Lipo - preço - informações - cirurgião plástico" %>
+
+   <%= render "/landing/antes_depois_lipoaspiracao" %>
+
+  <%end%>
+
+ <% if params[:product_id] and  @product.name == "Toxina Botulínica - Rugas Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_botox_toxina_botulinica" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Bioplastia ou Preenchimento Facial Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_acido_hialuronico_preenchimento_facial" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Rinoplastia plástica nariz: preço R$, antes e depois,  como é feita\r\n"    %>
+
+   <%= render "/landing/antes_depois_rinoplastia" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Lifting Facial – Ritidoplastia - preço - antes e depois - cirurgião plástico\r\n"    %>
+
+   <%= render "landing/antes_depois_preco_lifting_facial_ritidoplastia" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Abdominoplastia: antes e depois, cicatriz, riscos, preço,  recuperação\r\n"      %>
+
+   <%= render "/landing/antes_depois_abdominoplastia" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Cirurgia Íntima / Ninfoplastia - Preço - antes e depois - +info\r\n"      %>
+
+   <%= render "/landing/antes_depois_ninfoplastia" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name == "Blefaroplastia Cirúrgia Plástica Pálpebras - Preço - Antes e Depois \r\n"       %>
+
+   <%= render "/landing/antes_depois_blefaroplastia" %>
+
+  <%end%>
+
+  <% if params[:product_id] and  @product.name ==  "Silicone bumbum / bunda - Preço - Cirurgião Plástico\r\n"        %>
+
+   <%= render "/landing/antes_depois_gluteoplastia" %>
+
+  <%end%>
+
+
+  <% if params[:product_id] and  @product.name ==  "Mentoplastia - Preço - Antes e Depois - Cirurgia Plástica"         %>
+
+   <%= render "/landing/antes_depois_mentoplastia" %>
+
+  <%end%>
+
+  <% if !params[:product_id] %>
+    <%= render "/landing/side_bar" %>
+  <% end %>
+
+      </div>
     </div>
+
+  </div>
+   </div>
+
 

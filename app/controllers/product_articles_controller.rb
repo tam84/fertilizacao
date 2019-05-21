@@ -3,14 +3,14 @@ class ProductArticlesController < ApplicationController
   
 
   def new
-  	@product_article = ProductArticle.new
+    @product_article = ProductArticle.new
     @users = User.all
   end
 
   def create
-  	@product_article = ProductArticle.new(product_article_params)
-  	if @product_article.save
-  		flash[:success] = "Associação feita com sucesso"
+    @product_article = ProductArticle.new(product_article_params)
+    if @product_article.save
+      flash[:success] = "Associação feita com sucesso"
       redirect_back(fallback_location: root_path)
     else
       flash[:error] = "Algo deu errado. Por favor tente novamente"
@@ -21,6 +21,22 @@ class ProductArticlesController < ApplicationController
   def show
     if params[:id]
       @product_article = ProductArticle.find_by(id: params[:id])
+      @product_articles = ProductArticle.where(product_id: @product_article.product_id, article_type: 1)
+      @guides = ProductArticle.where(product_id: @product_article.product_id, article_type: 0)
+    end
+  end
+
+  def index
+    if params[:product_id] and !params[:article_type] 
+      @product_articles = ProductArticle.where(product_id: params[:product_id], article_type: 0)
+      @product = Product.find_by(id: params[:product_id])
+    elsif params[:product_id] and params[:article_type]
+      @product_articles = ProductArticle.where(product_id: params[:product_id], article_type: 1)
+      @product = Product.find_by(id: params[:product_id])
+      render "_experiencias"
+    else
+      @product_articles = ProductArticle.all
+      @product = Product.first
     end
   end
 
@@ -40,13 +56,13 @@ class ProductArticlesController < ApplicationController
 
   end
 
-	private
+  private
 
-	def product_article_params
-    params.require(:product_article).permit(:product_id, :title, :content)    		
-	end
+  def product_article_params
+    params.require(:product_article).permit(:article_type,:product_id, :title, :content, images:[])       
+  end
 
 
 end
-		
+    
 

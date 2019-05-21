@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_13_164338) do
+ActiveRecord::Schema.define(version: 2019_05_21_120437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,16 +51,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "chat_rooms", force: :cascade do |t|
-    t.string "title"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "senter_id"
-    t.integer "receiver_id"
-    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
-  end
-
   create_table "connections", force: :cascade do |t|
     t.integer "followed_id"
     t.string "followed_type"
@@ -75,15 +65,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
     t.string "email"
     t.text "contacts"
     t.string "firm"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "customer_to_bankers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "banker_id"
-    t.integer "product_id"
-    t.integer "firm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -128,16 +109,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
-    t.bigint "user_id"
-    t.bigint "chat_room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.integer "notification_type"
     t.integer "check_status", default: 0
@@ -158,70 +129,63 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
   create_table "product_articles", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "product_associates", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "category_id"
+    t.integer "assetclass_id"
+    t.integer "article_type"
     t.integer "product_id"
-    t.boolean "admin", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "product_specifics", force: :cascade do |t|
-    t.integer "irr_from"
-    t.integer "coc_from"
-    t.integer "irr_to"
-    t.integer "coc_to"
-    t.integer "deal_size_from"
-    t.integer "deal_size_to"
-    t.integer "stake_offered_from"
-    t.integer "stake_offered_to"
-    t.integer "revenue_from"
-    t.integer "revenue_to"
-    t.integer "ebtida_from"
-    t.integer "ebtida_to"
-    t.string "closing_expected"
-    t.integer "net_debt"
-    t.integer "product_id"
-    t.string "investment_structure"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "management_firm"
-    t.string "manager"
-    t.string "administrator"
     t.string "destribuitor"
-    t.string "cnpj"
     t.string "inception_date"
-    t.string "minimal_investment"
-    t.string "maximum_investment"
-    t.string "target_investor"
-    t.string "benchmark"
     t.integer "assetclass_id"
     t.integer "category_id"
     t.integer "firm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "key_information"
-    t.integer "performance_fee"
-    t.integer "admin_fee"
-    t.string "status"
     t.string "other_obs"
     t.integer "target_return_benchmark_from"
     t.integer "target_return_benchmark_to"
-    t.string "country"
     t.integer "view_status", default: 0
     t.datetime "from_investment_period"
     t.datetime "to_investment_period"
-    t.integer "total_investment"
+    t.string "street_name"
+    t.string "street_number"
+    t.integer "zip_code"
+    t.string "city"
+    t.string "room_number"
+    t.string "neighborhood"
+    t.integer "english_level"
+    t.integer "spanish_level"
+    t.integer "educational_level"
+    t.string "skill_tags", default: [], array: true
+    t.integer "age"
+    t.integer "user_id"
+    t.text "requirement"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "street_name"
+    t.string "street_number"
+    t.integer "zip_code"
+    t.string "city"
+    t.string "room_number"
+    t.integer "english_level"
+    t.integer "spanish_level"
+    t.integer "educational_level"
+    t.text "short_profile"
+    t.string "skill_tags", default: [], array: true
+    t.integer "age"
+    t.text "long_profile"
+    t.string "neighborhood"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "quotations", force: :cascade do |t|
@@ -237,13 +201,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
     t.string "group_id"
     t.integer "status", default: 0
     t.integer "product_id"
-  end
-
-  create_table "reserved_relations", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -291,7 +248,4 @@ ActiveRecord::Schema.define(version: 2019_03_13_164338) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "chat_rooms", "users"
-  add_foreign_key "messages", "chat_rooms"
-  add_foreign_key "messages", "users"
 end

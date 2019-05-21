@@ -1,5 +1,6 @@
 
 
+ 
 
 
 
@@ -12,19 +13,15 @@
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
           <% if product.images.present? %>
-          <%= image_tag(product.images.first.variant(resize: "510x265!")) %>
+          <%= image_tag(product.images.first.variant(resize: "400x400"),height: '170') %>
           <% else %>
           <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
           <% end %>            
           </a>
       </div>
       <div class="card-body">
-        <div class="text-center" >
-          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0a2644;'} %>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_contact_message_path, {style:'color:#0a2644;'} %>
-              </button>
-            <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#0a2644;'} %>
+        <div class="text-left" >
+           
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -32,21 +29,25 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0a2644">
-              <%= h truncate(product.name, :length => 32) %>              
-            </h4>
-            <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#02dbff;font-size: 22px; font-family: HelveticaNeue-Light">
+              <%= h truncate(product.name, :length => 36) %>              
+            </h2>
+            <p class="card-description" style="color:#616a74;height: 60px; margin-top: 20px; text-align: left; font-size: 14px">
+
               <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
+            </p>
             </div>
-            </div>
+
+
             <div class="card-footer">
-              <div class="price">
-                <h4><%= product.key_information%></h4>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>+Info").html_safe, product_path(id: product.id),{style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:95px;', class:"btn btn-sm"}  %>
+            
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>email</i>email").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:90px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
-            <div class="stats">
-              <p class="card-category"style='color:#000'><%= product.category.name%></p>
             </div>
-          </div>
+
+
         </div>
       </div>
       <% end %>

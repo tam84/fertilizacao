@@ -4,48 +4,45 @@ class ProductsController < ApplicationController
 
 
 
-	def new
-		@product = Product.new
-	end
+  def new
+    @product = Product.new
+  end
 
-	def create 
+  def create 
     if params[:product][:category_id].present? and params[:product][:firm_id].present?
-		  assetclass_id = Category.find_by(id: params[:product][:category_id]).assetclass_id
+      assetclass_id = Category.find_by(id: params[:product][:category_id]).assetclass_id
       if product_params[:management_firm] == ""
         params_merged = product_params.merge(assetclass_id: assetclass_id, management_firm: "confidencial")        
       else
-		    params_merged = product_params.merge(assetclass_id: assetclass_id)
+        params_merged = product_params.merge(assetclass_id: assetclass_id)
       end
     end
-		@product = Product.new(params_merged)
-		if @product.save
-      		flash[:success] = "Produto criado com sucesso!"
-      		redirect_to @product		
-		else
-      		flash[:error] = "Não foi possivel criar o produto, tente novamente!"
+    @product = Product.new(params_merged)
+    if @product.save
+          flash[:success] = "Produto criado com sucesso!"
+          redirect_to @product    
+    else
+          flash[:error] = "Não foi possivel criar o produto, tente novamente!"
           render 'new'
-		end
-	end
+    end
+  end
 
 
-	def index		
+  def index   
     if params[:category_id]
       @products = Product.where(category_id: params[:category_id])
+    else
+      @products = Product.all
     end
-	end
+  end
 
-	def show
-		if params[:id]
-			@product = Product.find_by(id: params[:id])	#unless Product.find_by(id: params[:id], view_status: "confidencial") #and !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
-			#current_user_segmentations = current_user.segmentation
-			#if current_user.customer_to_product_associates.present?
-			#	@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
-			#else
-				#@product_associates = @product.product_associates#.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
-			#end
-			#@posts = @product.posts.order(created_at: :desc)
-		end
-	end
+  def show
+    if params[:id]
+      @product = Product.find_by(id: params[:id]) 
+      @questions = ProductArticle.where(product_id: @product.id, article_type: 1)
+      @guides = ProductArticle.where(product_id: @product.id, article_type: 0)      
+    end
+  end
 
 
   def edit
@@ -76,7 +73,7 @@ class ProductsController < ApplicationController
         redirect_back(fallback_location: root_path)              
       end
     end
-  end	
+  end 
 
   def import
     Product.import(params[:file])
@@ -86,15 +83,15 @@ class ProductsController < ApplicationController
   end  
 
 
-	private
+  private
 
 
 
-	def product_params
-		params.require(:product).permit(:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :from_investment_period, :to_investment_period, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :total_investment, :management_firm ,:benchmark ,videos:[], images:[], releases:[], documents:[], 
-		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
-			)
-	end
+  def product_params
+    params.require(:product).permit(:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :from_investment_period, :to_investment_period, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :total_investment, :management_firm ,:benchmark ,videos:[], images:[], releases:[], documents:[], 
+    product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
+      )
+  end
 
 
 

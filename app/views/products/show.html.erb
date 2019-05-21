@@ -1,4 +1,10 @@
+
+
+
 <div id="procedimentos" class="main" style=" background-color: #fff;margin-top: -50px"></br>
+        
+         
+
   <div class="row">
 
 
@@ -6,24 +12,145 @@
   <div class="card "></br>
     
 
+  <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #0a2644; margin-right: : 0px; margin-left: 50px">
+      <%= link_to ("AGENDE SUA CONSULTA GRATUÍTA").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#fff; font-size:13px; font-weight:bold'}%>        
+  </button>    </br></br>          
+
+
+
+   
+  <% if @product.name == "Colocar peito silicone - Preço R$ - Antes e Depois - Tamanho Tipo Prótese"  %>
 
    <%= render "/landing/antes_depois_silicone" %>
 
+  <%end%>
+
+
+
+  <% if @product.name == "Cirurgia plástica orelha de abano -preço R$, antes e depois, recuperação\r\n"     %>
+
+   <%= render "/landing/antes_depois_otoplastia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mamoplastia Redutora - Preço - Informações - Cirurgião Plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_mamoplastia_redutora" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mastopexia com Prótese Preço - antes e depois e +info\r\n"    %>
+
+   <%= render "/landing/antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mastopexia sem Prótese - Valor - informações - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Lipoaspiração Lipo - preço - informações - cirurgião plástico" %>
+
+   <%= render "/landing/antes_depois_lipoaspiracao" %>
+
+  <%end%>
+
+  <% if @product.name == "Toxina Botulínica - Rugas Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_botox_toxina_botulinica" %>
+
+  <%end%>
+
+  <% if @product.name == "Bioplastia ou Preenchimento Facial Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_acido_hialuronico_preenchimento_facial" %>
+
+  <%end%>
+
+  <% if @product.name == "Rinoplastia plástica nariz: preço R$, antes e depois,  como é feita\r\n"    %>
+
+   <%= render "/landing/antes_depois_rinoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Lifting Facial – Ritidoplastia - preço - antes e depois - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_lifting_facial_ritidoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Abdominoplastia: antes e depois, cicatriz, riscos, preço,  recuperação\r\n"      %>
+
+   <%= render "/landing/antes_depois_abdominoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Cirurgia Íntima / Ninfoplastia - Preço - antes e depois - +info\r\n"      %>
+
+   <%= render "/landing/antes_depois_ninfoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Blefaroplastia Cirúrgia Plástica Pálpebras - Preço - Antes e Depois \r\n"       %>
+
+   <%= render "/landing/antes_depois_blefaroplastia" %>
+
+  <%end%>
+
+  <% if @product.name ==  "Silicone bumbum / bunda - Preço - Cirurgião Plástico\r\n"        %>
+
+   <%= render "/landing/antes_depois_gluteoplastia" %>
+
+  <%end%>
+
+
+  <% if @product.name ==  "Mentoplastia - Preço - Antes e Depois - Cirurgia Plástica"         %>
+
+   <%= render "/landing/antes_depois_mentoplastia" %>
+
+  <%end%>
+
+
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 24px; border-bottom: 1px solid #eee;font-family: HelveticaNeue-Light; font-weight: bold"> Últimas notícias </h4>
+</div>
+
+
+<div class="container" style="text-align: left">
+<div class="row " style="margin-top: 0px;">
+  
+  <% @product.product_articles.all.each do |article| %>
+
+
+  <div class="col-md-12"style="" ></br>
+    <h3 style="font-family: HelveticaNeue-Light;font-size: 16px;border-bottom: 1px solid #ccc; font-weight: bold; line-height: 1.0; padding-bottom: 20px; margin-top: -15px; font-size: 15px"> <%= article.title %> </h3>      
+  </div>
+
+  <% end %>
+
+
+
+</div>
+</div>
 
 
   </div>          
 </div>
 
 
+
+
+
 <div class="col-md-8">
-  <div class="card ">
+  <div class="card "></br>
     
-    <div class="card-header card-header-rose card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons" style="color: #f79d94">info</i>
-      </div>
-      <h4 class="card-title">Informações</h4></br></br>
-    </div>
+
    
 
     <div class="col-md-12" style="margin-left: 00px; text-align: left">
@@ -47,6 +174,10 @@
 
 
 
+
+
+
+
 <div class="container-fluid">
   <div class="row">
 
@@ -59,14 +190,21 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title " style="text-align: left">Especista em plástica</h6>
-                  <h4 class="card-title" style="text-align: left; color:#f79d94; font-weight: bold">Tatiana</h4>
-                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px; text-align: left' >
-                    Meu nome é Marcela e irei tirar todas as suas dúvidas sobre cirurgia plástica, envie sua mensagem que em breve entrarei em contato para conversarmos via whatsapp
+                 <h5 class="card-title" style="height: 20px; text-align: left; color:#02dbff; font-size: 24px; font-family: HelveticaNeue-Light">
+                  Tire suas dúvidas</h5>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
+                    Meu nome é Tatiana, se você tem dúvidas e quer perguntar a um médico por favor clique no botão abaixo e faça sua pergunta. Fique tranquila, todos os seus dados serão mantidos em confidencialidade.
                   </p>
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="" style="margin-top: -30px">
-                  <%= link_to ("Enviar Email").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
-                  </button>
+                </div>
+
+
+            <div class="card-footer">
+              <div class="stats">                   
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>email</i>Perguntar").html_safe,new_contact_message_path,{ :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:-18px', class:"btn btn-sm"}  %>          
+
+              </div>
+            </div>
+
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -88,18 +226,25 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title " style="text-align: left">Especista em plástica</h6>
-                  <h4 class="card-title" style="text-align: left; color:#f79d94; font-weight: bold">Marcela</h4>
-                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px; text-align: left' >
-                    Meu nome é Marcela e irei tirar todas as suas dúvidas sobre cirurgia plástica, envie sua mensagem que em breve entrarei em contato para conversarmos via whatsapp
+                 <h5 class="card-title" style="height: 20px; text-align: left; color:#0a2644; font-size: 24px; font-family: HelveticaNeue-Light">
+                  Agende sua consulta grátis</h5>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
+                    Meu nome é Marcela, se você deseja agendar uma consulta com um cirurgião plástico de confiança, deixe seus dados que iremos direcionar para uma das clínicas parceiras. Retornaremos seu contato por telefone.
                   </p>
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="" style="margin-top: -30px">
-                  <%= link_to ("Enviar Email").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
-                  </button>
+                </div>
+
+
+            <div class="card-footer">
+              <div class="stats">                   
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>schedule</i>Agendar").html_safe,new_contact_message_path,{ :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:130px; margin-left:-18px', class:"btn btn-sm"}  %>          
+
+              </div>
+            </div>
+
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" style="background-color: #0a2644">
                     </div>
                   </div>
                 </div>
@@ -111,44 +256,110 @@
           
 
 
-        <% if @product and @product.product_articles.present? %>
+
+
+
+
+
+
+
+  <div class="col-md-12"></br>
+<div class="card">  
+            <div class="container"></BR>
+
+
+
+  <h4 style="font-size: 25px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;margin-top: 0px "> PERGUNTAS E EXPERIÊNCIAS DE OUTRAS PESSOAS</h4>
+</br>
+
+    <% @questions.each do |article|%>
+    <h4 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0; margin-top: 15px" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h4>
+
+
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 14px; "> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 270)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+
+    </p>
+    <div style="border-bottom: 1px solid #ccc;padding-bottom: 15px">
+    <%= link_to ("<i class='material-icons'>question_answer</i>Veja as respostas").html_safe, product_article_path(id: article.id), {style:'color:#616a74;font-size:14px;'} %>
+    </div>
+
+    <% end %>    
+  </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="col-md-12">
-              <div class="card ">
+          <div class="card ">
+            <div class="container"></br>
+        
 
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons" style="color: #f79d94">info</i>
-                  </div>
-                  <h4 class="card-title">Notícias</h4>
-         </div> </br>
+  <h4 style="font-size: 25px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;margin-top: 0px "> OUTROS GUIAS COMPLETOS </h4>
+</br>
 
-            <div class="row">
-          
-          <div class="col-md-12">
-            <% @product.product_articles.each do |release| %>
-          <div class="col-md-12">
-            <%= link_to release.title, product_article_path(id: release), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
 
-          </div>
 
-            <% end %>
-          </div> 
+<% @questions.each do |article|%>
+<div class="row " style="margin-top: 0px;">
+  
 
-          <div class="card">
-          </div>
+  <div class="col-md-4"style="border-bottom: 1px solid #ccc;" ></br>
+    <h4 style="font-size: 18px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 18px;color: #2c2c2c" %> </h4>
+  </div>
+
+
+  <div class="col-md-4" style="border-bottom: 1px solid #ccc;"></br>
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 14px;"> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+
+    </p>
+  </div>
+
+
+
+  <div class="col-md-4" style="border-bottom: 1px solid #ccc;"></br>
+      <div class="card-header card-header-image" data-header-animation="false" style="padding-bottom: 20px; margin-top: 0px" >
+        <a href="#pablo" >
+          <% if article.images.present? %>
+          <%= image_tag(article.images.first.variant(resize: "400x400"),height: '170') %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
+          </a>
+      </div>    
+  </div>
+
+
+
+</div>
+<% end %>
+
+
 
 
             </div>
           </div>          
         </div>          
-        <% end %>
-
-
-
-
-
-
-
 
 
 
@@ -163,8 +374,24 @@
 </div>
 
 
+
+
+
+
+
+
+
   </div>          
 </div>
 
- </div>
+
+
+
+
+
+
+  </div>
+</div>
+      
+</div>
 

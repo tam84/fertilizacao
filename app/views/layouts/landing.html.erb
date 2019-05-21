@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+ 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138589882-1"></script>
@@ -66,23 +66,53 @@
       <div class="collapse navbar-collapse justify-content-end has-image" id="navigation" style="background: url(&quot;./assets/img/blurred-image-1.jpg&quot;) 0% 0% / cover;">
         <ul class="navbar-nav" >
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><%= link_to 'Home', root_path, {style:"color:#0a2644; font-weight:bold"} %> </p>
-          </li>
 
-
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#como_funciona" style="color:#0a2644; font-weight:bold; font-size:16px; ">Tratamentos Parcelados</a></p>
+          <li class="nav-item" style="margin-right: 20px; margin-top: 1px ">
+              <p><a href="#como_funciona" style="color:#0a2644; font-family: HelveticaNeue-Light;text-transform: uppercase; font-weight:bold;font-size: 14px">Tratamentos Parcelados</a></p>
           </li>          
 
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#eventos"style="color:#0a2644; font-weight:bold">Eventos</a></p>
-          </li>          
+
+          <li class="nav-item dropdown"style="margin-right: 0px; ">
+            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#0a2644; font-family: HelveticaNeue-Light;text-transform: uppercase;font-weight:bold;font-size: 14px; margin-top: 4px;   ">
+              Notícias
+              
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <% Assetclass.where(id: 1..58).order(id: :asc).each do |assetclass| %>
+              <% if assetclass.categories.first and assetclass.categories.first.products.first  %>
+              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first.id), {class:"dropdown-item"} %>
+              <% end %>
+
+              <% end %>
+
+                                
+            </div>
+
+          </li>     
 
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#procedimentos" style="color:#0a2644; font-weight:bold; font-size:16px; ">Preço</a></p>
+          <li class="nav-item dropdown"style="margin-right: 10px; ">
+            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#0a2644; font-family: HelveticaNeue-Light;text-transform: uppercase;font-weight:bold;font-size: 14px; margin-top: 4px   ">
+              Procedimentos
+              
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <% Assetclass.where(id: 1..58).order(id: :asc).each do |assetclass| %>
+              <% if assetclass.categories.first and assetclass.categories.first.products.first  %>
+              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first.id), {class:"dropdown-item"} %>
+              <% end %>
+
+              <% end %>
+
+                                
+            </div>
+
+          </li>                       
+
+
+          <li class="nav-item" style="margin-right: 10px; margin-top: 4px">
+              <p><a href="#procedimentos" style="color:#0a2644; font-family: HelveticaNeue-Light;text-transform: uppercase; font-weight:bold;font-size: 14px;">Preço</a></p>
           </li>          
 
 
@@ -114,7 +144,7 @@
             <div class="row">
               <div class="col-md-6 mr-auto" style="text-align: left;margin-top: 10px">
                 <div class="social text-center" >
-                  <h2 class="mt-3" style="color: #fff; font-weight: bold;font-size: 27px; text-align: left;"> Especialistas em Fertilização e Inseminação</h2>
+                  <h2 class="mt-3" style="color: #fff; font-size: 36px; text-align: left;font-family: HelveticaNeue-Light;"> Especialistas em Fertilização e Inseminação</h2>
                   </div></br>
 
                     <div class="info info-horizontal" style="margin-top: -90px; margin-left: -8px">
@@ -122,8 +152,8 @@
                       <i class="material-icons">attach_money</i>
                     </div>
                       <div class="description">
-                        <h2 class="info-title" style=" color: #fff; font-weight: bold;text-align: left; font-size: 21px">Batemos seu preço</h2>
-                        <h4 class="info-title" style=" color: #fff; font-weight: bold;text-align: left; font-size: 21px; margin-top: -12px">Economize até R$5.000</h4>
+                        <h2 class="info-title" style=" color: #fff; text-align: left; font-size: 24px;font-family: HelveticaNeue-Light;width: 500px; margin-top: 24px">Batemos seu preço</h2>
+                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 24px;font-family: HelveticaNeue-Light;width: 500px; margin-top: -20px">Economize até R$5.000</h4>
                       </div>
                     </div>
 
@@ -133,7 +163,7 @@
                         <i class="material-icons">credit_card</i>
                         </div>
                       <div class="description">
-                        <h2 class="info-title" style=" color: #fff; font-weight: bold;text-align: left; font-size: 21px">Fertilização parcelada 36x</h2>
+                        <h2 class="info-title" style=" color: #fff; text-align: left; font-size: 24px;font-family: HelveticaNeue-Light;width: 500px; margin-top: 24px">Fertilização parcelada 36x</h2>
                       </div>
                     </div>
 
@@ -143,7 +173,7 @@
                         <i class="material-icons">people</i>
                         </div>
                       <div class="description">
-                        <h2 class="info-title" style=" color: #fff; font-weight: bold;text-align: left; font-size: 21px">Consulta Gratuíta</h2>
+                        <h2 class="info-title" style=" color: #fff; text-align: left; font-size: 24px;font-family: HelveticaNeue-Light;width: 500px; margin-top: 24px">Consulta Gratuíta</h2>
                       </div>
                     </div>
 
@@ -152,7 +182,7 @@
 
           <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #f79d94; margin-left: -8px; width: 300px">
             <%= link_to ("AGENDE SUA CONSULTA - Grátis ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:15px; font-weight:bold'}%>        
-          </button>         
+          </button>            
 
                   
                   </div>  
@@ -203,7 +233,7 @@
 
 
                       <div class="text-center" style="margin-top: -20px">
-                        <%= f.submit "Quero engravidar",  {class: 'btn btn-rose mt-4', style: "background-color:#f79d94; color:#0a2644; font-weight:bold"} %></br></br>
+                        <%= f.submit "Quero engravidar",  {class: 'btn btn-rose mt-4', style: "background-color:#02dbff; color:#0a2644; font-weight:bold"} %></br></br>
 
                       </div>
 
@@ -252,7 +282,7 @@
 <div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px"></br>
         
 
-<h5 class="title description" style="text-align: center; color:#0a2644; font-weight: bold; background-color: #fff;  font-size: 27px;" >NOSSOS TRATAMENTOS</h5>
+<h1 class="title description" style="text-align: center; font-family: HelveticaNeue-Light ;color:#2c2c2c;background-color: #fff;  font-size: 27px;" >NOSSOS TRATAMENTOS PARA GRAVIDEZ</h1>
 <div class="section section-nucleo-icons">
         <div class="container">
           <div class="row">
@@ -260,21 +290,17 @@
 
 
 
-<div class="row" style="margin-top: 0px">
+<div class="row" style="margin-top: 0px;border-bottom: 1px solid #ccc;">
   <div class="col-md-4">
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/fertilizacao-in-vitro.jpg">
+          <img style="height: 165px" src="/assets/fertilizacao-in-vitro.jpg" alt="fertilização in vitro">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#0a2644" class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_fertilizacaoinvitro"><i style="color:#0a2644" class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_fertilizacaoinvitro"><i style="color:#0a2644" class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content" >                    
@@ -282,26 +308,30 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Fertilização in vitro
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px; ">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">De R$7.155 a R$30.000 </p>            
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
+              <p class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
 
-                     Fizemos um guia sobre fertilização in vitro:
-                     1.) Qual valor aproximado de uma fertilização in vitro?
-                     2.) Para que serve fertilização in vitro? 
-                     3.) Quais as chances de uma fertilização in vitro dar certo? 
-                     4.) O que é fertilização in vitro?            
-            </h2>
+                Fizemos um guia sobre fertilização in vitro: 1.) Qual valor aproximado de uma fertilização in vitro? 2.) Para que serve fertilização in vitro? 3.) Quais as chances de uma fertilização in vitro dar certo? 4.) O que é fertilização in vitro?
+              </p>
+            </div>
           </div>
+
+
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74; ">De R$7.155 a R$30.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
             
           </div>
       </div>
@@ -312,16 +342,11 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
+          <img style="height: 165px" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg"alt="inseminação artificial taxa de sucesso ">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#0a2644" class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/"><i style="color:#0a2644" class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/products/207"><i style="color:#0a2644" class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -329,26 +354,30 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Taxa de Sucesso
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$6.615 a R$28.000
+            </p>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
               Fizemos sobre taxa de sucesso da FIV
               1.) Como saber minha taxa de sucesso na FIV
               2.) Taxa de sucesso FIV 40 anos
               3.) Quais as chances FIV de 3 embriões
               4.) Fertilizaçao in vitro chances de gêmeos
               5.) Taxa de gravidez por ciclo
-            </h2>
+            </div>
             </div>
 
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$6.615 a R$28.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 207),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_lipoaspiracao",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
 
@@ -359,16 +388,11 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/inseminacao-artificial.jpg">
+          <img style="height: 165px" src="/assets/inseminacao-artificial.jpg" alt="inseminação artificial">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#0a2644" class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_inseminacao_artificial"><i style="color:#0a2644" class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_inseminacao_artificial"><i style="color:##0a2644" class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -376,27 +400,35 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Inseminação Artificial
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$6.885 a R$28.000 
+            </p>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia de inseminação artificial.
               1) Qual o valor de uma inseminação artificial?
               2.) Como funciona a fertilização artificial?
               3.) Qual a diferença entre inseminação artificial e fertilização in vitro? 
               4.) Qual a idade mínima para fazer inseminação artificial? 
-            </h2>
+            </div>
             </div>
 
+
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$6.885 a R$28.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 207),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"preco_antes_depois_abdominoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 215),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
 
 
         </div>
@@ -405,16 +437,11 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
+          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg" alt="relação sexual programada">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=16-9"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_relacao_sexual_programada"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_relacao_sexual_programada"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -422,11 +449,13 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold; font-size: 18px">
-
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Relação Sexual Programada
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left;font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$5.535 a R$23.000
+            </p>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left;">
 
               Fizemos um guia de rinoplastia.
               1.) O que é rinoplastia?
@@ -436,17 +465,20 @@
               5.) Cirurgia rinoplastia: Recuperação
               6.) Preço da rinoplastia
               6.) Antes e depois rinoplastia
-            </h2>
+            </div>
             </div>
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$5.535 a R$23.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 210),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"preco_antes_depois_rinoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 215),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
 
 
 
@@ -456,16 +488,12 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/transferencia-embriao-congelado.jpg">
+          <img style="height: 165px" src="/assets/transferencia-embriao-congelado.jpg" alt="transferência de embrião congelado ">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=2-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_transferencia_de_embriao_congelado"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_transferencia_de_embriao_congelado"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -473,26 +501,33 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">
-              Tranferência de Embrião Congelado
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 22px; font-family: HelveticaNeue-Light">
+              Tranferência Embrião Congelado
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$7.650 a R$27.000 
+            </p>
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre transferência de embrião congelado
               1.) Onde congelar o embrião
               2.) O que é um embrião congelado? 
               3.) Quanto tempo de repouso depois da transferência de Embrioes
-            </h2>
+            </div>
             </div>
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$7.650 a R$27.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 212),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/antes_depois_preco_mamoplastia_redutora",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 215),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
 
 
 
@@ -502,16 +537,12 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/doacao-de-ovulos.jpg">
+          <img style="height: 165px" src="/assets/doacao-de-ovulos.jpg" alt="Doação de Óvulos">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=3-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_doacao_de_ovulos"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_doacao_de_ovulos"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -519,10 +550,15 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Doação de Óvulos
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$750 a R$3.000 
+            </p>            
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre doação de óvulos
               1.) O que é ovodoação? 
@@ -530,18 +566,24 @@
               3.) Doação de óvulos entre irmãs
               4.) Doação de óvulos compartilhada 
               5.) Quanto se ganha para doar óvulos? 
-            </h2>
             </div>
+            </div>
+
 
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$750 a R$3.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 208),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_botox_toxina_botulinica",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 208),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
+
 
 
         </div>
@@ -550,16 +592,12 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/doacao-de-semen.jpeg">
+          <img style="height: 165px" src="/assets/doacao-de-semen.jpeg" alt="Doação de Sémen"
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=4-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_doacao_de_semen"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_doacao_de_semen"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -567,27 +605,38 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold; font-size: 18px">
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Doação de Sémen
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$800 a R$2.300
+            </p>               
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um Guia sobre doação de sémen
               1.) Como funciona a doação de sémen 
               2.) Inseminação com doador conhecido
               3.) Contrato de doação de semêm
               4.) Doação de sémen método natural
-            </h2>
+            </div>
             </div>
 
+
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$800 a R$2.300 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 209),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_acido_hialuronico_preenchimento_facial",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 209),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
+
 
 
 
@@ -597,16 +646,12 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/doacao-de-embriao.jpg">
+          <img style="height: 165px" src="/assets/doacao-de-embriao.jpg" alt="Doação de Embrião">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=9-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_doacao_de_embriao"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_doacao_de_embriao"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -614,28 +659,37 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold; font-size: 18px">
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Doação de Embrião 
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$9.855 a R$45.000
+            </p>               
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre doação de embrião
               1.) Quais são os valores de doação de embriões?
               2.) Adoção de embriões excedentários 
               3.) Quanto custa adoção de embrião
               4.) Embriodoação
-            </h2>
             </div>
+            </div>
+
 
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#616a74;">De R$9.855 a R$45.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 211),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/antes_depois_preco_lifting_facial_ritidoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 211),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
 
 
         </div>
@@ -644,16 +698,11 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/barriga-de-aluguel.jpg">
+          <img style="height: 165px" src="/assets/barriga-de-aluguel.jpg" alt="Barriga de Aluguel">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=17"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_barriga_de_aluguel"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_barriga_de_aluguel"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -661,10 +710,16 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold; font-size: 18px">
+
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Barriga de Aluguel
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$4.635 a R$25.000
+            </p>             
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre barriga de aluguel
               1.) Qual o valor de uma barriga de aluguel?
@@ -674,18 +729,23 @@
               5.) O que significa útero de substituição? 
               6.) Preço barriga de aluguel
 
-            </h2>
+            </div>
             </div>
 
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644;">De R$4.635 a R$25.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 218),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_otoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 218),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
+
+
+
 
 
         </div>
@@ -694,16 +754,12 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/casais-homoafetivos.jpg">
+          <img style="height: 165px" src="/assets/casais-homoafetivos.jpg" alt="Casais Homoafetivos">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=10-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_antes_depois_gluteoplastia"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/products/220"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -711,8 +767,14 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold; font-size: 18px">              Casais Homoafetivos
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
+              Casais Homoafetivos
             </h2>
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              De R$9.855 a R$40.000
+            </p>               
+
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia para casais homoafetivos
@@ -724,11 +786,13 @@
             </div>
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644;">De R$9.855 a R$40.000 </p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 220),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_gluteoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 220),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
 
@@ -740,16 +804,11 @@
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="/assets/preservacao-da-fertilidade.jpg">
+          <img style="height: 165px" src="/assets/preservacao-da-fertilidade.jpg" alt="Preservação da Fertilidade">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
-              </button>
-            <a style="color:#0a2644;" href="/products/217"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -757,46 +816,52 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">              Preservação da Fertilidade
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
+              Preservação da Fertilidade
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              Preço sujeito a consulta
+            </p>   
+
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre preservação de fertilidade
               1.) O que é a preservação de fertilidade 
               2.) Para quem é indicada? 
               3.) Estilo de vida
               4.) Uso de vitaminas
-
-            </h2>
+            </div>
             </div>
 
+
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644;"></p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 217),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,product_path(id: 217),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 217),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
 
 
 
+
         </div>
       </div>
+ 
   <div class="col-md-4">
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="assets/congelamento-ovulos.jpg">
+          <img style="height: 165px" src="assets/congelamento-ovulos.jpg" alt="Congelamento de Óvulos">
           </a>
       </div>
       <div class="card-body">
         <div class="text-left">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=2&amp;product_associates%5B%5D=1&amp;product_id=14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">email</i>email</a>
-          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0a2644;" href="/preco_congelamento_de_ovulos"><i class="material-icons">attach_money</i>preço</a>
-              </button>
-            <a style="color:#0a2644;" href="/preco_congelamento_de_ovulos"><i class="material-icons">info</i>+info</a>
+
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -804,29 +869,39 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-weight: bold;font-size: 18px">              Congelamento de Óvulos
+
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
+              Congelamento de Óvulos
             </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
+              Preço sujeito a consulta
+            </p>               
+
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
               Fizemos um guia sobre congelamento de óvulos
               1.) Como funciona o congelamento de óvulos? 
               2.) Qual o custo do congelamento de óvulos? 
               3.) Quanto tempo um óvulo pode ficar congelado? 
-            </h2>
+            </div>
             </div>
 
             <div class="card-footer">
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644;"></p></br>
-              </div>            
-              <div class="stats">
-                <p class="card-category" style="color:#0a2644; font-weight: bold">Antes e Depois</p>
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, "/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,"/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+
               </div>
             </div>
 
 
+
         </div>
       </div>
+
 
 
 
@@ -841,6 +916,282 @@
 
     <!-- Sart Modal -->
  
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px"></br>
+        
+
+<h5 class="title description" style="text-align: center; font-family: HelveticaNeue-Light ;color:#2c2c2c;background-color: #fff;  font-size: 30px;" >GUIAS, NOTÍCIAS, EXPERIÊNCIAS E AVALIAÇÕES DE OUTRAS PESSOAS</h5>
+
+<div class="section section-nucleo-icons">
+        <div class="container">
+          <div class="row">
+
+
+
+
+<div class="row" style="margin-top: -30px;">
+  <div class="col-md-4">
+    <div >
+      <div class="card-header card-header-image" data-header-animation="false" style="text-align: center">
+        <i class="material-icons" style="color:#f79d94; font-size: 50px">library_books</i>
+      </div>
+      <div class="card-body">
+        <div class="text-left">
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" >                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#02dbff; font-size: 24px; font-family: HelveticaNeue-Light;">
+              GUIAS COMPLETOS
+            </h2>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px; ">
+
+                     Nossos guias trazem informações bastante completas sobre todos os tipos de tratamentos para fertilidade
+                     
+            </h2>
+          </div>
+            
+          </div>
+      </div>
+
+
+
+  <div class="col-md-4">
+    <div >
+      <div class="card-header card-header-image" data-header-animation="false" style="text-align: center">
+        <i class="material-icons" style="color:#f79d94; font-size: 50px">question_answer</i>
+      </div>
+      <div class="card-body">
+        <div class="text-left">
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#02dbff; font-size: 24px; font-family: HelveticaNeue-Light;">
+              PERGUNTAS & RESPOSTAS
+            </h2>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+              Você encontrará perguntas de pacientes sobre tratamentos de fertilidade e respostas de vários médicos. 
+            </h2>
+            </div>
+
+
+
+
+        </div>
+      </div>
+  <div class="col-md-4">
+    <div class="">
+      <div class="card-header card-header-image" data-header-animation="false" style="text-align: center">
+        <i class="material-icons" style="color:#f79d94; font-size: 50px">rate_review</i>
+      </div>
+      <div class="card-body">
+        <div class="text-left">
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#02dbff; font-size: 24px; font-family: HelveticaNeue-Light;">
+              AVALIAÇÕES
+            </h2>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+
+              Você poderá ver a opinião de pacientes sobre os tratamentos de fertilidade.
+            </h2>
+            </div>
+
+
+
+        </div>
+      </div>
+
+
+      </div>
+
+       </div>
+      </div>
+
+</br>
+
+
+
+
+
+
+
+<div class="container">
+  <h4 style="font-size: 25px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;margin-top: -30px "> PERGUNTAS & RESPOSTAS DE PACIENTES E MÉDICOS</h4>
+</div></br>
+
+<div class="container">
+<div class="row">
+
+
+  <div class="col-md-9"></br>
+    <% ProductArticle.last(15).each do |article|%>
+    <h4 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0; margin-top: 15px" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h4>
+
+
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 14px; "> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 270)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+
+    </p>
+    <div style="border-bottom: 1px solid #ccc;padding-bottom: 15px">
+    <%= link_to ("<i class='material-icons'>question_answer</i>Veja as respostas").html_safe, product_article_path(id: article.id), {style:'color:#616a74;font-size:14px;'} %>
+    </div>
+
+    <% end %>    
+  </div>
+
+
+    <div class="col-md-3" >
+
+
+      <div class="col-md-12 mr-auto" style="text-align: left; background-color: #0a2644; margin-top: 0px">
+
+      <h3 style="margin-top: -20px; padding-top: 20px;color: #fff; font-weight: bold; font-size: 18px; text-align: center">Faça sua pergunta aos médicos </h3>
+
+        <%= form_for ContactMessage.new do |f| %>
+
+
+
+
+          <div class="col-md-12 form-group has-default bmd-form-group" style="margin-top: 20px" >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333;">
+                  <i class="material-icons" style="color:#fff">face</i>
+                </span>
+              </div>
+              <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;" %>
+            </div>
+          </div> </br>                  
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons" style="color:#fff">mail</i>
+                </span>
+              </div>
+              <%= f.text_field :email, class: 'form-control', placeholder: "Email", style:"color:#fff" %>
+            </div></br>                  
+          </div>
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons"style="color:#fff">phone</i>
+                </span>
+              </div>
+              <%= f.text_field :contacts, class: 'form-control', placeholder: "Telefone", style:"color:#fff" %>
+            </div>
+          </div></br>                  
+
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons"style="color:#fff">textsms</i>
+                </span>
+              </div>
+              <%= f.text_field :content, class: 'form-control', placeholder: "Sua Pergunta", style:"color:#fff" %>
+            </div>
+          </div>
+
+
+          <div class="text-center" style="margin-top: 0px">
+            <%= f.submit "Perguntar aos médicos",  {class: 'btn btn-rose mt-4', style: "background-color:#02dbff; color:#0a2644; font-weight:bold"} %></br></br>
+
+          </div>
+
+        <% end %>
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+</br></br></br>
+ 
+
+<div class="container">
+  <h4 style="font-size: 25px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;"> GUIAS E MATÉRIAS SOBRE TRATAMENTOS DE FERTILIDADE</h4>
+</div></br>
+
+
+<div class="container">
+
+<% ProductArticle.where(article_type: 0).each do |article|%>
+<div class="row " style="margin-top: 0px;">
+  
+
+  <div class="col-md-3"style="border-bottom: 1px solid #ccc;" ></br>
+    <h4 style="font-size: 18px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 18px;color: #2c2c2c" %> </h4>
+  </div>
+
+
+  <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 15px;"> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+
+    </p>
+  </div>
+
+
+
+  <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
+      <div class="card-header card-header-image" data-header-animation="false" >
+        <a href="#pablo" >
+          <% if article.images.present? %>
+          <%= image_tag(article.images.first.variant(resize: "400x400"),height: '170') %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
+          </a>
+      </div>    
+  </div>
+
+
+
+</div>
+<% end %>
+
+</div>
+
+
+
+
+
+</br></br>
+
+
+
+
+
+
+
+
 
 
 
@@ -867,11 +1218,11 @@
                   <div class="col-md-6 ml-auto" style="margin-top: 0px">
                     <div class="info info-horizontal">
                       <div class="description">
-                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 20px">Fique por dentro dos fatos</h4>
-                        <h4 class="info-title" style=" color:#f79d94; text-align: left; font-size: 40px">EUfértil Eventos</h4>
+                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 20px">Parcele seu tratamento de fertilidade</h4>
+                        <h4 class="info-title" style=" color:#f79d94; text-align: left; font-size: 40px">EUfértil Financiamento</h4>
 
                         <p class="description" style="font-size: 20px; color: #fff; text-align: left">
-                          Os eventos funcionam para dar informações sobre tratamentos para engravidar e dar a você a chance de tirar todas as suas dúvidas conosco e compartilhar suas experências com outras pessoas! Increva-se para o próximo evento.
+                          Preencha o formulário abaixo e nos informe em quantas vezes deseja parcelar o seu tratamento de fertilidade. Temos parcerias com diversas empresas e buscaremos uma boa solução para você!
                         </p>
                       </div>
                     </div>
@@ -879,7 +1230,7 @@
 
                   </div>
                   <div class="col-md-6 mr-auto" style="margin-top: 30px">
-                    <p class="mt-3" style="color: #fff; font-size: 24px;"> Próximo evento - Dia 05/04/2019 - Webnário sobre Fertilizão In Vitro. Das 9:00 as 12:00. Gratuíto!</p></br>                    
+                    <p class="mt-3" style="color: #fff; font-size: 24px;"> Preencha o formulário para parcelar o seu tratamento</p></br>                    
                     <%= render 'events/new' %>
 
                   </div>
@@ -904,11 +1255,11 @@
             <div class="col-md-4">
               <div class="team-player">
                 
-                  <i class="material-icons" style="color:#02dbff; font-size: 50px">credit_card</i>
+                  <i class="material-icons" style="color:#f79d94; font-size: 50px">credit_card</i>
                 
 
-                <h4 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Tratamentos Parcelados 36x</h4>
-                <p style="height: 150px; font-size: 17px; color:#616a74; margin-top: 35px"> Tratamentos parcelados em até 36x. Temos produtos como financiamento, consórcio e outros. Nossos coachs irão buscar a solução de pagamento que cabe no seu bolso. </p>
+                <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Tratamentos Parcelados 36x</h2>
+                <p style="height: 150px; font-size: 17px; color:#616a74;"> Tratamentos parcelados em até 36x. Temos produtos como financiamento, consórcio e outros. Nossos coachs irão buscar a solução de pagamento que cabe no seu bolso. </p>
                 <p></p>
               </div>
             </div>
@@ -916,10 +1267,10 @@
 
             <div class="col-md-4">
               <div class="team-player">
-                <i class="material-icons" style="color:#02dbff; font-size: 50px">attach_money</i>
+                <i class="material-icons" style="color:#f79d94; font-size: 50px">attach_money</i>
 
-                <h4 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Batemos seu preço</h4>
-                <p style="height: 150px; font-size: 16px; color:#616a74; margin-top: 35px">O tratamento que cabe no seu bolso! Temos excelentes clínicas conveniadas para todos os bolsos! Todos os dias levamos diversos pacientes para as clínicas conveniadas, por isso recebemos muitos descontos.  </p>
+                <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Batemos seu preço</h2>
+                <p style="height: 150px; font-size: 16px; color:#616a74">O tratamento que cabe no seu bolso! Temos excelentes clínicas conveniadas para todos os bolsos! Todos os dias levamos diversos pacientes para as clínicas conveniadas, por isso recebemos muitos descontos.</p>
               </div>
             </div>
 
@@ -927,16 +1278,16 @@
             <div class="col-md-4">
 
               <div class="team-player">
-                <i class="material-icons" style="color:#02dbff; font-size: 50px">people</i>
+                <i class="material-icons" style="color:#f79d94; font-size: 50px">people</i>
 
                 <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Melhores clínicas e médicos</h2>
-                <p style="height: 150px; font-size: 16px; color: #616a74;  margin-top: 35px">Você encontra a melhor clínica de reprodução huma. Compare preços, converse com médicos, tenha acesso a experiência de outras pessoas. Nossa equipe ajuda você com todas as suas dúvidas.</p>
+                <p style="height: 150px; font-size: 16px; color: #616a74">Você encontra a melhor clínica de reprodução huma. Compare preços, converse com médicos, tenha acesso a experiência de outras pessoas. Nossa equipe ajuda você com todas as suas dúvidas.</p>
               </div>
             </div>
 
           </div>
-        <p  style="color:#f79d94; font-weight: bold; font-size: 24px; margin-top: 20px "> 
-          Segurança e Qualidade! Trabalhamos apenas com clínicas e médicos de excelência.
+        <p  style="color:#02dbff; font-weight: bold; font-size: 24px; margin-top: 20px "> 
+          Segurança e Qualidade! Trabalhamos apenas com cirurgiões plásticos de excelente reputação.
       </p></br>
         </div>
       </div>
@@ -948,35 +1299,6 @@
 
 
     
-<div id="como_funciona" style="text-align: center; color:#fff; background-color: #f79d94; margin-top: 0px">
-      <div class="container">
-        <h4 class="title description" style="color:#0a2644">Notícias Reprodução Humana</h4></br>
-        <div class="team">
-          <div class="row" style="margin-top: -80px">
-
-            <div class="col-md-4" style="text-align: left">
-              <div class="team-player">
-                
-                
-
-                <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Fertilização in Vitro</h2>
-                <% if Product.first %>
-                <% Product.first.product_articles.each do |article| %>
-                <h2 style="font-size: 14px; color:#0a2644; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
-                <% end %>
-                <% end %>
-              </div>
-
-
-          
-
-          </div>
-        <p  style="color:#75ff02; font-weight: bold; font-size: 24px; margin-top: 20px "> 
-      </p></br>
-        </div>
-      </div>
-    </div></br>
 
 
 
@@ -984,7 +1306,17 @@
 
 
 
-<footer id="como_funciona" style="text-align: center; color:#fff; background-color: #0a2644; margin-top: 0px">
+
+
+
+
+
+
+
+
+
+
+<footer id="como_funciona" style="text-align: center; color:#fff; background-color: #f2f2f2; margin-bottom: -130px">
       <div class="container"></br>
 
         <div class="col-sm-12" style="color: #fff; text-align: center">
@@ -1002,24 +1334,24 @@
 
                 <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Acesso rápido</h2>
 
-                <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Como Funciona</h2>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Eventos</h2>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Empréstimo para Fertilização</h2>
 
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Consórcio para Fertilização</h2>
 
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Fertilização Parcelada</h2>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;"> Notícias Fertilização</h2>
 
               </div>
@@ -1035,47 +1367,13 @@
                 
                 
 
-                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Tratamentos</h2>
+                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Guias</h2>
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Fertilização in Vitro</h2>
+                <% Category.all.each do |category| %>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Taxa de Sucesso</h2>
+                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></h2>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Inseminação Artificial</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Relação Sexual Programada</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Transferência de Embrião Congelado</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Doação de Évulos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Doação de Sémen</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Doação de Embrião</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Barriga de Aluguel</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Casais Homoafetivos</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preservação de Fertilidade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Congelamento de Óvulos</h2>
-
+                <% end %>
               </div>
   
 
@@ -1087,46 +1385,15 @@
                 
                 
 
-                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Tratamentos</h2>
+                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Experências</h2>
 
-                <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Fertilização in Vitro</h2>
+                <% Category.all.each do |category| %>                
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Taxa de Sucesso</h2>
+                <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></h2>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Inseminação Artificial</h2>
+                <% end %>
 
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Relação Sexual Programada</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Transferência de Embrião Congelado</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Doação de Évulos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Doação de Sémen</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Doação de Embrião</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Barriga de Aluguel</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Casais Homoafetivos</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Preservação de Fertilidade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Preço Congelamento de Óvulos</h2>
 
               </div>
   
@@ -1142,13 +1409,9 @@
 
 
 
-
         </div></br>
       </div>
     </footer>
-
-
-
 
 
 

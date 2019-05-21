@@ -1,0 +1,228 @@
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: -50px"></br>
+        
+        
+
+  <div class="row">
+
+
+
+
+
+<div class="col-md-8">
+  <div class="card ">
+    
+
+
+<div class="container">
+<div class="row">
+
+
+  <div class="col-md-12"></br>
+
+  <h1 style="font-size: 22px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff;margin-top: 0px "><%= @product.category_name(@product).upcase%> - PERGUNTAS & EXPERIÊNCIAS DE OUTRAS PESSOAS</h1>
+
+</br>
+    <% @product_articles.each do |article|%>
+    <h2 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0; margin-top: 15px" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h2>
+
+
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 14px; "> 
+
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 270)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+
+    </p>
+    <div style="border-bottom: 1px solid #ccc;padding-bottom: 15px">
+    <%= link_to ("<i class='material-icons'>question_answer</i>Veja as respostas").html_safe, product_article_path(id: article.id), {style:'color:#616a74;font-size:14px;'} %>
+    </div>
+
+    <% end %>    
+  </div>
+
+
+  </div>
+</div>
+
+
+
+      </div>
+    </div></br>
+</br>
+
+
+
+
+
+<div class="col-md-4">
+  <div class="card "></br>
+
+
+    
+  <button type="button" rel="tooltip" class="btn btn-sm col-md-12" data-original-title="" title="" style="background-color: #02dbff; margin-right: : 0px; margin-left: 20px;width: 90%">
+      <%= link_to ("Pergunte a um cirurgião").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#fff; font-size:13px; font-weight:bold;'}%>        
+  </button>    </br> </br>
+
+
+
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: #0a2644">
+                    </div>
+                  </div>
+                </div>
+
+
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 18px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #02dbff"> GALERIA DE FOTOS </br><%= @product.category_name(@product).upcase %> </h4>
+</div>
+
+
+
+  <% if @product_articles.first.product.name == "Colocar peito silicone - Preço R$ - Antes e Depois - Tamanho Tipo Prótese"  %>
+
+   <%= render "/landing/antes_depois_silicone" %>
+
+  <%end%>
+
+
+
+  <% if @product_articles.first.product.name == "Cirurgia plástica orelha de abano -preço R$, antes e depois, recuperação\r\n"    %>
+
+   <%= render "/landing/antes_depois_otoplastia" %>
+
+  <%end%>
+
+
+  <% if @product_articles.first.product.name == "Mamoplastia Redutora - Preço - Informações - Cirurgião Plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_mamoplastia_redutora" %>
+
+  <%end%>
+
+
+  <% if @product_articles.first.product.name == "Mastopexia com Prótese Preço - antes e depois e +info\r\n"    %>
+
+   <%= render "/landing/preco_antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product_articles.first.product.name == "Mastopexia sem Prótese - Valor - informações - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/preco_antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product_articles.first.product.name == "Lipoaspiração Lipo - preço - informações - cirurgião plástico" %>
+
+   <%= render "/landing/antes_depois_lipoaspiracao" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Toxina Botulínica - Rugas Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_botox_toxina_botulinica" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Bioplastia ou Preenchimento Facial Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/landing/preco_antes_depois_acido_hialuronico_preenchimento_facial" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Rinoplastia plástica nariz: preço R$, antes e depois,  como é feita\r\n"    %>
+
+   <%= render "/landing/antes_depois_rinoplastia" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Lifting Facial – Ritidoplastia - preço - antes e depois - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_lifting_facial_ritidoplastia" %> 
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Abdominoplastia: antes e depois, cicatriz, riscos, preço,  recuperação\r\n"      %>
+
+   <%= render "/landing/antes_depois_abdominoplastia" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Cirurgia Íntima / Ninfoplastia - Preço - antes e depois - +info\r\n"      %>
+
+   <%= render "/landing/antes_depois_ninfoplastia" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name == "Blefaroplastia Cirúrgia Plástica Pálpebras - Preço - Antes e Depois \r\n"       %>
+
+   <%= render "/landing/antes_depois_blefaroplastia" %>
+
+  <%end%>
+
+  <% if @product_articles.first.product.name ==  "Silicone bumbum / bunda - Preço - Cirurgião Plástico\r\n"        %>
+
+   <%= render "/landing/antes_depois_gluteoplastia" %>
+
+  <%end%>
+
+
+  <% if @product_articles.first.product.name ==  "Mentoplastia - Preço - Antes e Depois - Cirurgia Plástica"         %>
+
+   <%= render "/landing/antes_depois_mentoplastia" %>
+
+  <%end%>
+
+
+  </div>          
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>          
+</div>
+
+
+
+
+
+
+
+  </div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+

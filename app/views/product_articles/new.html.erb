@@ -1,35 +1,43 @@
 <div class="col-md-12">
-	<div class="card "> 
-		<div class="card-header card-header-rose card-header-icon">
-		<%= form_with model: @product_article, local: true do |f| %>
+    <div class="card "> 
+        <div class="card-header card-header-rose card-header-icon">
+        <%= form_with model: @product_article, local: true do |f| %>
             <% @product_article.errors.full_messages.each do |message| %>
                 <li>
                     <%= link_to message %>
                 </li>
             <% end %>
-  			<div class="form-group">
-    		
+            <div class="form-group">
+            
+
+            <%= f.label :article_type, "Confidencial ou público" %><br/>
+            <%= f.select :article_type, ProductArticle.article_types.keys %><br/> <br/>     
+
 
             <%= f.label :product_id, "Produto" %><br/>
             <%= f.select :product_id, options_for_select(Product.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione o produto que pertence o artigo' %><br/> <br/>     
 
 
 
-    		<%= f.label :title, "Título do Artigo" %>
-    		<%= f.text_area :title, class: 'form-control' %> <br />    		    					
+            <%= f.label :title, "Título do Artigo" %>
+            <%= f.text_area :title, class: 'form-control' %> <br />                                 
 
-    		<%= f.label :content, "Escreva o conteúdo do artigo" %>
-    		<%= f.text_area :content, rows: 5, cols: 25, class: "tinymce", style: "height:500px" %> <br />    		    					
-			
-		
+            <%= f.label :content, "Escreva o conteúdo do artigo" %>
+            <%= f.text_area :content, rows: 5, cols: 25, class: "tinymce", style: "height:500px" %> <br />                                  
+            
+        
+        <div class= "field" >
+        <%= f.label :images, "Selecione as imagens do produto" %>
+        <%= f.file_field :images, multiple: true, class: 'form-control' %> <br />             
+        </div>  
 
 
 
 
-  			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
-			<% end %>
-		</div>
-	</div>
+            <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+            <% end %>
+        </div>
+    </div>
 </div>
 
 
