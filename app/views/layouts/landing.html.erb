@@ -4,14 +4,16 @@
  
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138589882-1"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141731978-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-138589882-1');
+  gtag('config', 'UA-141731978-1');
 </script>
+
 
     
     <title>Fertilização in vitro e inseminação artificial, parcelamento e preço acessível </title>
@@ -81,7 +83,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <% Assetclass.where(id: 1..58).order(id: :asc).each do |assetclass| %>
               <% if assetclass.categories.first and assetclass.categories.first.products.first  %>
-              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first.id), {class:"dropdown-item"} %>
+              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first), {class:"dropdown-item"} %>
               <% end %>
 
               <% end %>
@@ -100,7 +102,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <% Assetclass.where(id: 1..58).order(id: :asc).each do |assetclass| %>
               <% if assetclass.categories.first and assetclass.categories.first.products.first  %>
-              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first.id), {class:"dropdown-item"} %>
+              <%= link_to assetclass.name, product_articles_path(product_id: assetclass.categories.first.products.first), {class:"dropdown-item"} %>
               <% end %>
 
               <% end %>
@@ -144,7 +146,7 @@
             <div class="row">
               <div class="col-md-6 mr-auto" style="text-align: left;margin-top: 10px">
                 <div class="social text-center" >
-                  <h2 class="mt-3" style="color: #fff; font-size: 36px; text-align: left;font-family: HelveticaNeue-Light;"> Especialistas em Fertilização e Inseminação</h2>
+                  <h1 class="mt-3" style="color: #fff; font-size: 36px; text-align: left;font-family: HelveticaNeue-Light;"> Tratamentos de Fertilização in Vitro e Inseminação Artificial</h1>
                   </div></br>
 
                     <div class="info info-horizontal" style="margin-top: -90px; margin-left: -8px">
@@ -282,7 +284,7 @@
 <div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px"></br>
         
 
-<h1 class="title description" style="text-align: center; font-family: HelveticaNeue-Light ;color:#2c2c2c;background-color: #fff;  font-size: 27px;" >NOSSOS TRATAMENTOS PARA GRAVIDEZ</h1>
+<h2 class="title description" style="text-align: center; font-family: HelveticaNeue-Light ;color:#2c2c2c;background-color: #fff;  font-size: 27px;" >NOSSOS TRATAMENTOS PARA GRAVIDEZ</h2>
 <div class="section section-nucleo-icons">
         <div class="container">
           <div class="row">
@@ -1037,16 +1039,16 @@
 
   <div class="col-md-9"></br>
     <% ProductArticle.last(15).each do |article|%>
-    <h4 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0; margin-top: 15px" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h4>
+    <h4 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0; margin-top: 15px" > <%= link_to article.title, product_article_path(id: article), style: "font-size: 16px;color: #2c2c2c" %> </h4>
 
 
      <p style="margin-top: 2px; line-height: 1.2; font-size: 14px; "> 
 
-      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 270)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 270)), product_article_path(id: article), style: "color: #2c2c2c"  %>      
 
     </p>
     <div style="border-bottom: 1px solid #ccc;padding-bottom: 15px">
-    <%= link_to ("<i class='material-icons'>question_answer</i>Veja as respostas").html_safe, product_article_path(id: article.id), {style:'color:#616a74;font-size:14px;'} %>
+    <%= link_to ("<i class='material-icons'>question_answer</i>Veja as respostas").html_safe, product_article_path(id: article), {style:'color:#616a74;font-size:14px;'} %>
     </div>
 
     <% end %>    
@@ -1145,14 +1147,14 @@
   
 
   <div class="col-md-3"style="border-bottom: 1px solid #ccc;" ></br>
-    <h4 style="font-size: 18px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 18px;color: #2c2c2c" %> </h4>
+    <h4 style="font-size: 18px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article), style: "font-size: 18px;color: #2c2c2c" %> </h4>
   </div>
 
 
   <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
      <p style="margin-top: 2px; line-height: 1.2; font-size: 15px;"> 
 
-      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article), style: "color: #2c2c2c"  %>      
 
     </p>
   </div>
@@ -1401,7 +1403,7 @@
           </div>
 
 
-    <div class="col-md-12 Footer-copyright" style="text-align: center; color: #fff; margin-top: 100px">
+    <div class="col-md-12 Footer-copyright" style="text-align: center; color: #2c2c2c; margin-top: 100px">
         © 2019 EUfértil, Inc. Todos os direitos reservados.
         
     </div>

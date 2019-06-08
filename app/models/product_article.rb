@@ -10,4 +10,8 @@ class ProductArticle < ApplicationRecord
 		category_name = product.category.name
 	end
 
+  def to_param
+    "#{id}-#{title}".parameterize
+  end 	
+
 end

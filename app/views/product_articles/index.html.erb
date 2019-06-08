@@ -36,7 +36,7 @@
       <div class="col-md-4" ></br>
         <% @product_articles.last(5).each do |article| %>    
         <h4 style="border-bottom:1px solid #ccc;margin-top:7px; padding-bottom: 15px; line-height: 1.0">
-        <%= link_to (raw article.title.truncate(56)), product_article_path(id: article.id), style: "font-size: 14px;font-family: HelveticaNeue-Light;color: #2c2c2c; font-weight:bold;" %>
+        <%= link_to (raw article.title.truncate(56)), product_article_path(id: article), style: "font-size: 14px;font-family: HelveticaNeue-Light;color: #2c2c2c; font-weight:bold;" %>
         </h4>
         <% end %>
       </div>
@@ -155,13 +155,13 @@
 
 
   <div class="col-md-4"></br>
-    <h2 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 16px;color: #2c2c2c" %> </h2>
+    <h2 style="font-size: 16px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article), style: "font-size: 16px;color: #2c2c2c" %> </h2>
   </div>
 
   <div class="col-md-4" ></br>
     <p style="margin-top: 2px; line-height: 1.2; font-size: 14px;"> 
 
-      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article), style: "color: #2c2c2c"  %>
 
     </p>
   </div>
