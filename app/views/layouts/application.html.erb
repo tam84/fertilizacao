@@ -122,8 +122,8 @@
       <div class="navbar-translate">
         <a class="navbar-brand" href="http://eufertil.com.br" rel="tooltip" title="Eu Fértil" data-placement="bottom" target="_blank">
           <p style="font-size: 40px; text-transform: lowercase; color: #0a2644; font-weight: bold; 
-"> fértil </p>
-          <h4 style="text-align: right; margin-top: -10px; color:#f79d94;font-weight: bold"> EU </h4>
+"> fértil </p></br>
+          <p style="text-align: right; margin-top: -50px; color:#f79d94;font-weight: bold; text-align: right;"> EU </p>
           <%# image_tag(("http://ec2-18-217-155-28.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco-fd00d8005b22ef903bbf567ea3de8e28b5d9548e29a827a14fd3920f7ed6ab8f.png"), style:"width:235px; height: 50px") %>
         </a>
 
@@ -241,27 +241,27 @@
                 
                 
 
-                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Acesso rápido</h2>
+                <p class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Acesso rápido</p>
 
-                <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Como Funciona</h2>
+                <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Como Funciona</p>
 
-                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Eventos</h2>
+                  <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Eventos</p>
 
-                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empréstimo para Fertilização</h2>
-
-
-                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Consórcio para Fertilização</h2>
+                  <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Empréstimo para Fertilização</p>
 
 
-                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Fertilização Parcelada</h2>
+                  <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Consórcio para Fertilização</p>
 
-                  <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Notícias Fertilização</h2>
+
+                  <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Fertilização Parcelada</p>
+
+                  <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Notícias Fertilização</p>
 
               </div>
   
@@ -276,11 +276,11 @@
                 
                 
 
-                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Guias</h2>
+                <p class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Guias</p>
 
                 <% Category.all.each do |category| %>
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></h2>
+                <p href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></p>
 
                 <% end %>
               </div>
@@ -294,12 +294,12 @@
                 
                 
 
-                <h2 class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Experências</h2>
+                <p class="title description" style="color:#f79d94;  font-size: 16px; height: 50px; font-weight: bold">Experências</p>
 
                 <% Category.all.each do |category| %>                
 
-                <h2 style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></h2>
+                <p style="font-size: 14px; color:#2c2c2c; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> <%= category.name %></p>
 
                 <% end %>
 
