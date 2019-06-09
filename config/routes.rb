@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :firms, only: [:new, :edit, :update, :create, :show, :index]
-  get 'landing/index'
-  get 'quotations/index'
-  get 'quotations/new'
-  get 'quotations/create'
-  get 'quotations/show'
-  get 'product_associates/index'
+  #get 'landing/index'
+  #get 'quotations/index'
+  #get 'quotations/new'
+  #get 'quotations/create'
+  #get 'quotations/show'
+  #get 'product_associates/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #get '/products', to: 'products#index'
   #get 'products/:id', to: 'products#show'
@@ -13,10 +13,10 @@ Rails.application.routes.draw do
     collection { post :import }
   end
   resources :email_messages#, only: [:new, :create, :show, :index]
-  resources :quotations
+  #resources :quotations
   resources :youtube_videos
-  resources :connections
-  resources :reserved_relations
+  #resources :connections
+  #resources :reserved_relations
   resources :contact_messages, only: [:new, :create]
   resources :events, only: [:new, :create]
  
@@ -24,14 +24,14 @@ Rails.application.routes.draw do
 
   #get '/product_associates', to: 'product_associates#index'
 
-  resources :chat_rooms, only: [:new, :create, :show, :index]
+  #resources :chat_rooms, only: [:new, :create, :show, :index]
   #root 'chat_rooms#index'  
 
-  resources :messages
+  #resources :messages
 
-  resources :customer_to_bankers
+  #resources :customer_to_bankers
 
-  resources :dark_orders
+  #resources :dark_orders
 
   mount ActionCable.server => '/cable'
 
@@ -67,17 +67,17 @@ Rails.application.routes.draw do
 
 
 
-  resources :product_associates, only: [:new, :create, :index]
+  #resources :product_associates, only: [:new, :create, :index]
 
   resources :categories, only:[:new,:create]
   resources :assetclasses, only:[:new,:create]  
   resources :product_articles
 
 
-  resources :posts
+  #resources :posts
 
   get 'user/:id' => 'users#show', as: :user
 
-  get '/request_tutorial', to: 'tutorials#request_tutorial'
+  #get '/request_tutorial', to: 'tutorials#request_tutorial'
 
 end
