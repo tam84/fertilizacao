@@ -45,7 +45,7 @@
   <nav class="navbar navbar-expand-lg fixed-top " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="http://eufertil.com.br" rel="tooltip" title="Eu Fertil" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Eu Fertil" data-placement="bottom" target="_blank">
 
           <p style="font-size: 30px; text-transform: uppercase; color: #f79d94; font-weight: bold; margin-top: 5px
 "> EU </p>          
@@ -313,7 +313,7 @@
             <h2 class="card-title" style="height: 20px; text-align: left; color:#f79d94; font-size: 24px; font-family: HelveticaNeue-Light">
               Fertilização in vitro
             </h2>
-            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">De R$7.155 a R$30.000 </p>            
+            <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">De R$10.000 a R$20.000 </p>            
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
               <p class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
 
@@ -325,10 +325,10 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>Guias").html_safe, product_articles_path(product_id: 222),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
 
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 206),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,'/preco_fertilizacaoinvitro',{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
+          
 
               </div>
             </div>
@@ -360,7 +360,7 @@
               Taxa de Sucesso
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$6.615 a R$28.000
+              Sob Consulta
             </p>
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
               Fizemos sobre taxa de sucesso da FIV
@@ -406,7 +406,7 @@
               Inseminação Artificial
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$6.885 a R$28.000 
+              De R$1.000 a R$5.000 
             </p>
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
@@ -421,11 +421,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, product_path(id: 207),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>Guias").html_safe, product_articles_path(product_id: 224),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
 
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"preco_antes_depois_abdominoplastia",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
-
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,product_path(id: 215),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,'/preco_inseminacao_artificial',{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
 
               </div>
             </div>
@@ -455,18 +453,14 @@
               Relação Sexual Programada
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$5.535 a R$23.000
+              De R$ 350 a R$ 600
             </p>
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left;">
 
-              Fizemos um guia de rinoplastia.
-              1.) O que é rinoplastia?
-              2.) Rinoplastia fechada
-              3.) Rinoplastia aberta
-              4.) Como remodelar a Ponta do Nariz?
-              5.) Cirurgia rinoplastia: Recuperação
-              6.) Preço da rinoplastia
-              6.) Antes e depois rinoplastia
+              Fizemos um guia sobre relação sexual assistida.
+              1.) O que é?
+              2.) Quanto custa
+            
             </div>
             </div>
 
@@ -507,7 +501,7 @@
               Tranferência Embrião Congelado
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$7.650 a R$27.000 
+              R$13 a 18mil + Mensalidade R$1.500
             </p>
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
 
@@ -557,7 +551,7 @@
               Doação de Óvulos
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$750 a R$3.000 
+              De R$2.000 a R$5.000 
             </p>            
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -612,7 +606,7 @@
               Doação de Sémen
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$800 a R$2.300
+              De R$800 a R$2.500
             </p>               
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -666,7 +660,7 @@
               Doação de Embrião 
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$9.855 a R$45.000
+              Sob Consulta
             </p>               
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -718,7 +712,7 @@
               Barriga de Aluguel
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$4.635 a R$25.000
+              De R$12.000 a R$18.000
             </p>             
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -774,7 +768,7 @@
               Casais Homoafetivos
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              De R$9.855 a R$40.000
+              De R$15.000 a R$50.000
             </p>               
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -876,7 +870,7 @@
               Congelamento de Óvulos
             </h2>
             <p class="card-category" style="color:#616a74; text-align: left; margin-top: 20px ">            
-              Preço sujeito a consulta
+              R$13 a 18mil + Mensalidade R$1.500
             </p>               
 
             <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left">
@@ -890,11 +884,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>+Info").html_safe, "/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>info</i>Guias").html_safe, product_articles_path(product_id: 233),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644; width:80px;', class:"btn btn-sm"}  %>
 
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,"/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #0a2644;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
-
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Antes Depois").html_safe,"/preco_antes_depois_queloide",{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:130px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-15px'>attach_money</i>Preços").html_safe,'/preco_congelamento_de_ovulos',{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #02dbff;width:80px; margin-left:10px', class:"btn btn-sm"}  %>          
 
               </div>
             </div>
