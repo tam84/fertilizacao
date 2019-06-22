@@ -10,8 +10,8 @@ class Firm < ApplicationRecord
 
 
 
-  include PgSearch
-  pg_search_scope :search_by_name, against: [:name]
+#  include PgSearch
+#  pg_search_scope :search_by_name, against: [:name]
 
 
   def thumbnail input
